@@ -1,0 +1,19 @@
+.users {
+  list-style: none;
+  margin-top: 16px;
+
+  &__item {
+    margin: 10px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    &:last-child {
+      border: none;
+      margin: 0;
+    }
+
+    &-email {
+      font-size: 12px;
+      opacity: 0.4;
+    }
+  }
+}

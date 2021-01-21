@@ -1,0 +1,53 @@
+@import 'fonts';
+@import 'theme';
+@import 'components/all';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $text-primary;
+  background-color: $bg-default;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 32px;
+}
+
+.paper {
+  flex-grow: 1;
+  min-width: 300px;
+  max-width: 480px;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #212a3f;
+}
+
+button {
+  padding: 10px;
+  outline: none;
+  border: 0;
+  width: 100%;
+  color: #fff;
+  background-color: #fe8468;
+  border-radius: 10px;
+  cursor: pointer;
+  &:disabled {
+    pointer-events: none;
+    background-color: #505050;
+  }
+}
