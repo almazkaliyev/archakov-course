@@ -1,6 +1,8 @@
 import * as TodoActionTypes from './actionTypes';
 
-const stateFromLocalStorage = JSON.parse(localStorage.getItem('store'));
+const stateFromLocalStorage = JSON.parse(localStorage.getItem('store')) ?? {
+  items: [],
+};
 
 export const initialState = stateFromLocalStorage;
 
