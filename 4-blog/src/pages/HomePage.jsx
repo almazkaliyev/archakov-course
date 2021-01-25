@@ -4,15 +4,18 @@ import React from 'react';
 import { fetchPosts } from '../api';
 import CardList from '../components/CardList';
 import Loader from '../components/Loader';
+import { setPosts } from '../store/actionCreators';
+import { StoreContext } from '../store/StoreContext';
 
 const HomePage = () => {
+  const { store, dispatch } = React.useContext(StoreContext);
+  const { items } = store;
   const [isLoading, setIsLoading] = React.useState(false);
-  const [posts, setPosts] = React.useState([]);
 
   React.useEffect(() => {
     setIsLoading(true);
     fetchPosts()
-      .then((items) => setPosts(items))
+      .then((res) => dispatch(setPosts(res)))
       .finally(() => setIsLoading(false));
   }, []);
 
@@ -20,7 +23,7 @@ const HomePage = () => {
     return <Loader />;
   }
 
-  return <CardList posts={posts} />;
+  return <CardList posts={items} />;
 };
 
 export default HomePage;

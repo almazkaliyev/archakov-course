@@ -3,14 +3,19 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
+import { fetchPostsByTitle } from '../api';
 import NavLink from '../router/NavLink';
+import { setPosts } from '../store/actionCreators';
+import { useDispatch } from '../store/hooks';
 
 const Header = ({ searchInputRef }) => {
+  const dispatch = useDispatch();
+
   const onSearchSubmit = (e) => {
     e.preventDefault();
     const query = searchInputRef.current.value;
     searchInputRef.current.value = '';
-    console.log(query);
+    fetchPostsByTitle(query).then((res) => dispatch(setPosts(res)));
   };
 
   const onKeyDown = (e) => {
