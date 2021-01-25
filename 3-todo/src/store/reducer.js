@@ -38,7 +38,7 @@ export const todoReducer = (state, action) => {
     case TodoActionTypes.REMOVE_TODO: {
       return {
         ...state,
-        items: [...state.items.filter((item) => item.id !== action.payload)],
+        items: state.items.filter((item) => item.id !== action.payload),
       };
     }
 
