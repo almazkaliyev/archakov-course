@@ -37,10 +37,14 @@ const PostPage = () => {
 
   return (
     <section>
+      <a className="btn btn-dark btn-sm" href="/">
+        Домой
+      </a>
+
       {postIsLoading ? (
         <Loader />
       ) : (
-        <div className="rounded bg-light shadow-sm overflow-hidden">
+        <div className="rounded bg-light shadow-sm overflow-hidden mt-4">
           <div className="d-flex flex-column flex-md-row">
             <ProgressiveImage placeholder="" src={image}>
               {(src, loading) =>
