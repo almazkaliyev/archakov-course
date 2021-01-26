@@ -7,6 +7,7 @@ import RouterContext from './RouterContext';
 
 const Router = ({ children }) => {
   const history = createBrowserHistory();
+  const [location, setLocation] = React.useState(history.location);
 
   const computeRootMatch = (pathname) => ({
     path: '/',
@@ -15,11 +16,16 @@ const Router = ({ children }) => {
     isExact: pathname === '/',
   });
 
+  React.useEffect(() => {
+    history.listen((currentLocation) => setLocation(currentLocation));
+  }, []);
+
   return (
     <RouterContext.Provider
       value={{
-        location: history.location,
-        match: computeRootMatch(history.location.pathname),
+        history,
+        location,
+        match: computeRootMatch(location.pathname),
       }}
     >
       {children}

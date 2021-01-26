@@ -6,6 +6,11 @@ export const setPosts = (payload) => ({
   payload,
 });
 
+export const addPost = (payload) => ({
+  type: ActionTypes.ADD_POST,
+  payload,
+});
+
 export const setComments = (payload) => ({
   type: ActionTypes.SET_COMMENTS,
   payload,

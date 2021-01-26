@@ -64,6 +64,15 @@ const Header = ({ searchInputRef }) => {
                 <NavLink
                   activeClassName="active"
                   className="nav-link"
+                  to="/create"
+                >
+                  Опубликовать свой пост
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  activeClassName="active"
+                  className="nav-link"
                   to="/about"
                 >
                   О нас

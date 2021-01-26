@@ -37,7 +37,7 @@ const AddCommentForm = () => {
       <button
         className="btn btn-dark position-absolute end-0"
         onClick={onClickHandle}
-        type="submit"
+        type="button"
       >
         Опубликовать
       </button>

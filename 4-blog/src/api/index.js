@@ -24,3 +24,8 @@ export const createComment = async (postId, text) => {
   const { data } = await axios.post(`posts/${postId}/comments`, { text });
   return data;
 };
+
+export const createPost = async (title, text) => {
+  const { data } = await axios.post(`posts`, { title, text });
+  return data;
+};

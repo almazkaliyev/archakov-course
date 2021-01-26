@@ -7,7 +7,14 @@ export const reducer = (state, action) => {
     case ActionTypes.SET_POSTS: {
       return {
         ...state,
-        items: action.payload,
+        items: action.payload.reverse(),
+      };
+    }
+
+    case ActionTypes.ADD_POST: {
+      return {
+        ...state,
+        items: [action.payload, ...state.items],
       };
     }
 

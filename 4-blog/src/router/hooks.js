@@ -7,3 +7,8 @@ export const useParams = () => {
   const { params } = React.useContext(RouterContext).match;
   return params || {};
 };
+
+export const useHistory = () => {
+  const { history } = React.useContext(RouterContext);
+  return history || {};
+};

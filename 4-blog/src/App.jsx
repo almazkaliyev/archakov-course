@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from './components/Header';
 import AboutPage from './pages/AboutPage';
+import CreatePostPage from './pages/CreatePostPage';
 import HomePage from './pages/HomePage';
 import PostPage from './pages/PostPage';
 import Route from './router/Route';
@@ -21,6 +22,7 @@ const App = () => {
             path="/"
             searchInputRef={searchInputRef}
           />
+          <Route component={CreatePostPage} path="/create" />
           <Route component={AboutPage} path="/about" />
           <Route component={PostPage} exact path="/posts/:id(\d+)" />
         </Switch>
