@@ -4,9 +4,12 @@ import ProgressiveImage from 'react-progressive-image';
 import { formatDistance } from 'date-fns';
 
 import { fetchCommentsByPostId, fetchPostById } from '../api';
+import AddCommentForm from '../components/AddCommentForm';
 import Comment from '../components/Comment';
 import Loader from '../components/Loader';
 import { useParams } from '../router/hooks';
+import { setComments } from '../store/actionCreators';
+import { StoreContext } from '../store/StoreContext';
 
 const PostImagePlaceholder = () => (
   <div
@@ -16,11 +19,12 @@ const PostImagePlaceholder = () => (
 );
 
 const PostPage = () => {
+  const { store, dispatch } = React.useContext(StoreContext);
+  const { comments } = store;
   const { id } = useParams();
   const [postIsLoading, setPostIsLoading] = React.useState(false);
   const [commentsIsLoading, setcommentsIsLoading] = React.useState(false);
   const [post, setPost] = React.useState({});
-  const [comments, setComments] = React.useState([]);
 
   const { name, title, image, text, createdAt } = post;
 
@@ -31,7 +35,7 @@ const PostPage = () => {
       .then((res) => setPost(res))
       .finally(() => setPostIsLoading(false));
     fetchCommentsByPostId(id)
-      .then((res) => setComments(res))
+      .then((res) => dispatch(setComments(res)))
       .finally(() => setcommentsIsLoading(false));
   }, []);
 
@@ -80,15 +84,21 @@ const PostPage = () => {
         </div>
       )}
 
-      <div className="mt-4">
-        <h5 className="mb-3">
-          Комментарии <span className="text-secondary">{comments.length}</span>
-        </h5>
-        {commentsIsLoading ? (
-          <Loader />
-        ) : (
-          comments.map((comment) => <Comment data={comment} key={comment.id} />)
-        )}
+      <div className="d-flex flex-column flex-lg-row-reverse justify-content-between mt-5">
+        <AddCommentForm />
+        <div className="col-lg-7">
+          <h5 className="mb-3">
+            Комментарии{' '}
+            <span className="text-secondary">{comments.length}</span>
+          </h5>
+          {commentsIsLoading ? (
+            <Loader />
+          ) : (
+            comments.map((comment) => (
+              <Comment data={comment} key={comment.id} />
+            ))
+          )}
+        </div>
       </div>
     </section>
   );

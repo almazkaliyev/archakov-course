@@ -18,7 +18,7 @@ const Comment = ({ data }) => {
   const { avatar, name, text } = data;
 
   return (
-    <div className="bg-light rounded p-3 mb-2 col-lg-7 col-xxl-5">
+    <div className="bg-light rounded p-3 mb-2">
       <div className="d-flex align-items-center mb-2 pb-2">
         <ProgressiveImage placeholder="" src={avatar}>
           {(src, loading) =>

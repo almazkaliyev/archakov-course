@@ -5,3 +5,13 @@ export const setPosts = (payload) => ({
   type: ActionTypes.SET_POSTS,
   payload,
 });
+
+export const setComments = (payload) => ({
+  type: ActionTypes.SET_COMMENTS,
+  payload,
+});
+
+export const addComment = (payload) => ({
+  type: ActionTypes.ADD_COMMENT,
+  payload,
+});

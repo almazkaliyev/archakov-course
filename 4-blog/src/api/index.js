@@ -19,3 +19,8 @@ export const fetchCommentsByPostId = async (id) => {
   const { data } = await axios.get(`posts/${id}/comments`);
   return data;
 };
+
+export const createComment = async (postId, text) => {
+  const { data } = await axios.post(`posts/${postId}/comments`, { text });
+  return data;
+};
