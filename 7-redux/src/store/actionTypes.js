@@ -1,0 +1,8 @@
+export const PREV_FORM_STEP = 'form/PREV_STEP';
+export const NEXT_FORM_STEP = 'form/NEXT_STEP';
+export const SET_CONTACTS_DATA = 'form/SET_CONTACTS_DATA';
+export const SET_DELIVERY_METHOD = 'form/SET_DELIVERY_METHOD';
+export const SET_PAYMENT_METHOD = 'form/SET_PAYMENT_METHOD';
+export const CREATE_ORDER_REQUEST = 'form/CREATE_ORDER_REQUEST';
+export const CREATE_ORDER_SUCCESS = 'form/CREATE_ORDER_SUCCESS';
+export const CREATE_ORDER_FAILED = 'form/CREATE_ORDER_FAILED';
